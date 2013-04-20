@@ -1,0 +1,95 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile="Site.Master.vb" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>Josef Zacek</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <a href="search.aspx"><img src="logo.png" height="58px" width="128px" alt="logo" style="float:left;" /></a>
+            <div class="title">
+                <h1>
+                    Josef Zacek - ASP.NET Application
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" 
+                            LogoutText="Log Out" LogoutPageUrl="~/Account/Login.aspx"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Account/search.aspx" Text="Search" Value="Search">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/master.aspx" Text="Master" Value="Master">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Customers" NavigateUrl="~/Account/customers.aspx">
+                            <asp:MenuItem NavigateUrl="~/Account/add_customer.aspx" Text="Add customer" 
+                                Value="Add customer"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/edit_customer.aspx" Text="Edit customer" 
+                                Value="Edit customer"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/delete_customer.aspx" Text="Delete customer" 
+                                Value="Delete customer"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/stock.aspx" Text="Stock" Value="Stock">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/DAL_display.aspx" Text="DAL " 
+                            Value="DAL"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/ADO.aspx" Text="ADO" Value="ADO"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/create_XML.aspx" Text="Create/Delete XML" 
+                            Value="Create XML"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/display_XML.aspx" Text="Display XML" 
+                            Value="Display XML"></asp:MenuItem>
+                        <asp:MenuItem Text="Add XML record" Value="Add XML record" 
+                            NavigateUrl="~/Account/add_XML_record.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/edit_XML.aspx" Text="Edit XML" 
+                            Value="Edit XML">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/delete_XML.aspx" Text="Delete XML" 
+                            Value="Delete XML"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Account/crash.aspx" Text="Crash" Value="Crash">
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+
+        
+
+       
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+       
+
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer" 
+        style="margin-right: auto; margin-left: auto; width: 1200px; border-top-style: dotted; border-top-width: thin; border-top-color: #C0C0C0;">
+        <p class="style1" style="padding: 0px; margin: 0px">
+            Created by <a href="http://www.josefzacek.com">josefzacek.com</a></p>
+&nbsp;</div>
+    </form>
+</body>
+</html>
